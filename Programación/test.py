@@ -1,7 +1,11 @@
 from violinElectronico import ViolinElectico
+from stock import Stock
 import time
 
-violin = ViolinElectico(marca = "Yamaha",
+almacen = Stock();
+print(almacen.get_violines_electricos());
+
+""" violin = ViolinElectico(marca = "Yamaha",
     modelo = "SV-200",
     numero_serie="123456789",
     color = "Negro",
@@ -11,7 +15,7 @@ violin = ViolinElectico(marca = "Yamaha",
     nivel_bateria = 0
     );
 print(f"Los datos {violin}");
-violin.prender();
+violin.prender(); """
 """ print(f"Horario de encendido {violin.get_horario_encendido()}");
 time.sleep(25);
 violin.apagar();
