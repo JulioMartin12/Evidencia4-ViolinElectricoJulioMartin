@@ -1,54 +1,61 @@
 class ViolinElectico:
-    def __init__(self, marca, modelo, numero_serie, color, tipo_puente, tipo_cuerdas, amplificador_incluido):
-        self.marca = marca;
-        self.modelo = modelo;
-        self.numero_serie = numero_serie;
-        self.color = color;
-        self.tipo_puente = tipo_puente;
-        self.tipo_cuerdas = tipo_cuerdas;
-        self.amplificador_incluido = amplificador_incluido;
+    def __init__(self, marca, modelo, numero_serie, color, tipo_puente, tipo_cuerdas, amplificador_incluido, nivel_bateria ):
+        self.__marca = marca;
+        self.__modelo = modelo;
+        self.__numero_serie = numero_serie;
+        self.__color = color;
+        self.__tipo_puente = tipo_puente;
+        self.__tipo_cuerdas = tipo_cuerdas;
+        self.__amplificador_incluido = amplificador_incluido;
+        self.__nivel_bateria = nivel_bateria;
        
     def get_marca(self):
-           return self._marca;
+           return self.__marca;
        
     def set_marca(self, marca):
-           self._marca = marca;
+           self.__marca = marca;
     
     def get_modelo(self):
-        return self._modelo;
+        return self.__modelo;
     
     def set_modelo(self, modelo):
-        self._modelo = modelo;
+        self.__modelo = modelo;
 
     def get_numero_serie(self):
-        return self._numero_serie;
+        return self.__numero_serie;
     
     def set_numero_serie(self, numero_serie):
-        self._numero_serie = numero_serie;
+        self.__numero_serie = numero_serie;
 
     def get_color(self):
-        return self._color;
+        return self.__color;
     
     def set_color(self, color):
-        self._color = color;
+        self.__color = color;
 
     def get_tipo_puente(self):
-        return self._tipo_puente
+        return self.__tipo_puente
     
     def set_tipo_puente(self, tipo_puente):
-        self._tipo_puente = tipo_puente;
+        self.__tipo_puente = tipo_puente;
 
     def get_tipo_cuerdas(self):
-        return self._tipo_cuerdas;
+        return self.__tipo_cuerdas;
     
     def set_tipo_cuerdas(self, tipo_cuerdas):
-        self._tipo_cuerdas = tipo_cuerdas;
+        self.__tipo_cuerdas = tipo_cuerdas;
 
     def get_amplificador_incluido(self):
-        return self._amplificador_incluido;
+        return self.__amplificador_incluido;
     
     def set_amplificador_incluido(self, amplificador_incluido):
-        self._amplificador_incluido = amplificador_incluido;
+        self.__amplificador_incluido = amplificador_incluido;
+    
+    def get_nivel_bateria(self):
+        return self.__nivel_bateria
+    
+    def set_nivel_bateria(self, value):
+        self.__nivel_bateria = value
 
     def __str__(self):
         return (f"ViolinElectrico(marca={self._marca}, modelo={self._modelo}, "
