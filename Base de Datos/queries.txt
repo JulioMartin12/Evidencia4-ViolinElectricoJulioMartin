@@ -1,0 +1,31 @@
+CREATE SCHEMA `evidencia4` ;
+
+CREATE TABLE IF NOT EXISTS `evidencia4`.`violin_electrico` (
+  `numero_serie` VARCHAR(45) NOT NULL,
+  `marca` VARCHAR(45) NOT NULL,
+  `modelo` VARCHAR(45) NOT NULL,
+  `color` VARCHAR(45) NOT NULL,
+  `tipo_puente` VARCHAR(45) NOT NULL,
+  `tipo_cuerda` VARCHAR(45) NOT NULL,
+  `amplificador_incluido` BOOLEAN NOT NULL,
+  `nivel_bateria` INT NOT NULL,
+  PRIMARY KEY (`numero_serie`));
+
+INSERT INTO `evidencia4`.`violin_electrico` (marca, modelo, numero_serie, color, tipo_puente, tipo_cuerda, amplificador_incluido, nivel_bateria) VALUES 
+('Yamaha', 'SV-200', 'YV2001234', 'Negro', 'Regulable', 'Sintéticas', TRUE, 100),
+('Fender', 'FV-300', 'FN3005678', 'Blanco', 'Fijo', 'Sintéticas', TRUE, 85),
+('Stratovarius', 'STV-100', 'STV1009876', 'Rojo', 'Regulable', 'Sintéticas', TRUE, 90),
+('Gibson', 'GB-500', 'GB5004567', 'Azul', 'Fijo', 'Sintéticas', TRUE, 75),
+('Ibanez', 'IV-700', 'IV7001234', 'Verde', 'Regulable', 'Sintéticas', TRUE, 80),
+('Yamaha', 'SV-200', 'YV2002345', 'Gris', 'Regulable', 'Metalicas', TRUE, 65),
+('Jackson', 'JK-400', 'JK4007890', 'Naranja', 'Fijo', 'Sintéticas', TRUE, 95),
+('Cort', 'CT-550', 'CT5502341', 'Madera', 'Regulable', 'Sintéticas', TRUE, 70),
+('Schecter', 'SC-600', 'SC6003456', 'Morado', 'Fijo', 'Sintéticas', TRUE, 60),
+('ESP', 'EP-700', 'EP7004568', 'Amarillo', 'Regulable', 'Sintéticas', TRUE, 85);
+
+select * from `evidencia4`.`violin_electrico`;
+select modelo, nivel_bateria from `evidencia4`.`violin_electrico`;
+select modelo, nivel_bateria from `evidencia4`.`violin_electrico` where  nivel_bateria > 70;
+select marca modelo, nivel_bateria from `evidencia4`.`violin_electrico` where  nivel_bateria > 70 order by 1; 
+select * from `evidencia4`.`violin_electrico`  order by 3 asc; 
+

@@ -57,8 +57,11 @@ class ViolinElectico:
     def set_nivel_bateria(self, value):
         self.__nivel_bateria = value
 
+
+     
+
     def __str__(self):
-        return (f"ViolinElectrico(marca={self._marca}, modelo={self._modelo}, "
-                f"numero_serie={self._numero_serie}, color={self._color}, "
-                f"tipo_puente={self._tipo_puente}, tipo_cuerdas={self._tipo_cuerdas}, "
-                f"amplificador_incluido={self._amplificador_incluido})")
+        return (f"ViolinElectrico(marca={self.__marca}, modelo={self.__modelo}, "
+                f"numero_serie={self.__numero_serie}, color={self.__color}, "
+                f"tipo_puente={self.__tipo_puente}, tipo_cuerdas={self.__tipo_cuerdas}, "
+                f"amplificador_incluido={self.__amplificador_incluido})")
