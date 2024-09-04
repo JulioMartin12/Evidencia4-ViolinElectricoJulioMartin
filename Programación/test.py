@@ -1,4 +1,5 @@
 from violinElectronico import ViolinElectico
+import time
 
 violin = ViolinElectico(marca = "Yamaha",
     modelo = "SV-200",
@@ -7,6 +8,11 @@ violin = ViolinElectico(marca = "Yamaha",
     tipo_puente = "Regulable",
     tipo_cuerdas = "Sintéticas",
     amplificador_incluido = True,
-    nivel_bateria = 100
+    nivel_bateria = 0
     );
 print(f"Los datos {violin}");
+violin.prender();
+""" print(f"Horario de encendido {violin.get_horario_encendido()}");
+time.sleep(25);
+violin.apagar();
+print(f"Bateria restante {round(violin.get_nivel_bateria(),2)}%") """
