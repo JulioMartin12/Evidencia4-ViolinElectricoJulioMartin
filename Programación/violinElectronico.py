@@ -1,5 +1,5 @@
 import datetime
-class ViolinElectico:
+class ViolinElectronico:
     def __init__(self, marca, modelo, numero_serie, color, tipo_puente, tipo_cuerdas, amplificador_incluido, nivel_bateria ):
         self.__marca = marca;
         self.__modelo = modelo;
@@ -55,7 +55,7 @@ class ViolinElectico:
         self.__amplificador_incluido = amplificador_incluido;
     
     def get_nivel_bateria(self):
-        return self.__nivel_bateria;
+        return float(self.__nivel_bateria);
     
     def set_nivel_bateria(self, value):
         self.__nivel_bateria = value;
@@ -74,26 +74,29 @@ class ViolinElectico:
         self.__horario_apagado  = horario_apagado;
         self.__nivel_bateria
 
- 
     def apagar(self):
         self.set_horario_apagado(datetime.datetime.now());
-        print(f"Horario de apagado {self.get_horario_apagado()}") 
         self.set_nivel_bateria(self.get_nivel_bateria() -  self.calcular_tiempo_consumo_bateria());
         self.set_horario_encendido(0);
-        return;
+        return self.get_horario_encendido();
 
     def prender(self):
-        if (self.get_nivel_bateria()!= 0):
+        if (self.get_nivel_bateria() != 0):
             self.set_horario_encendido(datetime.datetime.now());
-            print(f"Nivel de Bateria {self.get_nivel_bateria()}%");
-            
+            return True;
         else:
-            print(f"El viólin no tiene bateria, conecte directamente a la corriente o recargue la bateria.")
-
-        return;
-
-    def cargar_bateria(self):
-        return
+            return False; 
+          
+    def cargar_bateria(self, tiempo_segundo):
+        if(tiempo_segundo < 0):
+            raise ValueError("Debe ingresar un valor mayor a 0");
+        carga = tiempo_segundo / 2;
+        nuevaCarga = self.get_nivel_bateria()+carga;
+        if(nuevaCarga > 100):
+            self.set_nivel_bateria(100);
+        else:
+            self.set_nivel_bateria(nuevaCarga);  
+        return self.get_nivel_bateria();
     
     def calcular_tiempo_consumo_bateria(self):
         minutos=((self.get_horario_apagado().hour)* 360 + self.get_horario_apagado().minute*60 + self.get_horario_apagado().second) - ((self.get_horario_encendido().hour)* 360 + self.get_horario_encendido().minute*60 + self.get_horario_encendido().second);
@@ -104,3 +107,4 @@ class ViolinElectico:
                 f"numero_serie={self.__numero_serie}, color={self.__color}, "
                 f"tipo_puente={self.__tipo_puente}, tipo_cuerdas={self.__tipo_cuerdas}, "
                 f"amplificador_incluido={self.__amplificador_incluido})");
+        
