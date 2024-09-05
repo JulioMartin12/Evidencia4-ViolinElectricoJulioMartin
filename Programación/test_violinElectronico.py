@@ -14,8 +14,11 @@ def test_prender(violin, resultado):
 ]) 
 def test_cargar_bateria(violin, carga, resultado):
     assert violin.cargar_bateria(carga) == resultado; 
-    
-    assertRaises(violin.cargar_bateria(-10))
+  
+def test_carga_bateria_excepcion(): 
+    violin=ViolinElectronico(1, 2, 'YV2001234', 'blanco', 'Regulable', 3, True, 0);   
+    with pytest.raises(ValueError, match="Debe ingresar un valor mayor a 0"):
+        violin.cargar_bateria(-10)
         
         
     
