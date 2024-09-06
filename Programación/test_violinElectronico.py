@@ -18,7 +18,20 @@ def test_cargar_bateria(violin, carga, resultado):
 def test_carga_bateria_excepcion(): 
     violin=ViolinElectronico(1, 2, 'YV2001234', 'blanco', 'Regulable', 3, True, 0);   
     with pytest.raises(ValueError, match="Debe ingresar un valor mayor a 0"):
-        violin.cargar_bateria(-10)
+        violin.cargar_bateria(-10);
+        
+@pytest.mark.parametrize("violin,resultado", [
+    (ViolinElectronico(1, 2, 'YV2001234', 'blanco', 'Regulable', 3, True, 100), 0)
+    ])
+def test_apagar(violin, resultado):
+    violin.prender();
+    assert violin.apagar() == 0;   
+    
+def test_apagar_excepcion():
+    violin=ViolinElectronico(1, 2, 'YV2001234', 'blanco', 'Regulable', 3, True, 100); 
+    with pytest.raises(ValueError, match="El viólin Eléctrico no está encendido."):
+        violin.apagar();
+    
         
         
     

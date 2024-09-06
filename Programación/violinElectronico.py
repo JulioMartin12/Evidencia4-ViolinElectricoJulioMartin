@@ -75,6 +75,8 @@ class ViolinElectronico:
         self.__nivel_bateria
 
     def apagar(self):
+        if (self.get_horario_encendido()==0):
+            raise ValueError("El viólin Eléctrico no está encendido."); 
         self.set_horario_apagado(datetime.datetime.now());
         self.set_nivel_bateria(self.get_nivel_bateria() -  self.calcular_tiempo_consumo_bateria());
         self.set_horario_encendido(0);
