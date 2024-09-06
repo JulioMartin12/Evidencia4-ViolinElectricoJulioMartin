@@ -98,10 +98,22 @@ INSERT INTO `evidencia4`.`cuerda` (id, cuerda, descripcion) VALUES
 (9, 'Oro', 'Cuerda premium con un sonido excepcionalmente claro.'),
 (10, 'Plata', 'Tono brillante y excelente respuesta al arco.');
 
+************CONSULTAS******************
+SELECT * FROM `evidencia4`.`violin_electrico`;
 
-select * from `evidencia4`.`violin_electrico`;
-select modelo, nivel_bateria from `evidencia4`.`violin_electrico`;
-select modelo, nivel_bateria from `evidencia4`.`violin_electrico` where  nivel_bateria > 70;
-select marca modelo, nivel_bateria from `evidencia4`.`violin_electrico` where  nivel_bateria > 70 order by 1; 
-select * from `evidencia4`.`violin_electrico`  order by 3 asc; 
+SELECT modelo.modelo,violin_electrico.numero_serie , violin_electrico.nivel_bateria 
+FROM evidencia4.modelo
+JOIN evidencia4.violin_electrico ON modelo.id = violin_electrico.modelo_id;
+
+
+SELECT modelo_id, marca_id ,numero_serie, nivel_bateria 
+FROM `evidencia4`.`violin_electrico` WHERE  nivel_bateria > 70;
+
+SELECT * FROM `evidencia4`.`violin_electrico`  ORDER BY 5 DESC; 
+
+
+SELECT numero_serie, modelo_id, nivel_bateria 
+FROM `evidencia4`.`violin_electrico` 
+WHERE  nivel_bateria > 70 ORDER BY 1; 
+
 
